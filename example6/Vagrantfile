@@ -5,19 +5,19 @@
 domain   = 'example.com'
 
 nodes = [
-  { :hostname => 'ex6proxy',   :ip => '192.168.0.42', :box => 'precise32' },
-  { :hostname => 'ex6db',      :ip => '192.168.0.43', :box => 'precise32' },
-  { :hostname => 'ex6web1',    :ip => '192.168.0.44', :box => 'precise32' },
-  { :hostname => 'ex6web2',    :ip => '192.168.0.45', :box => 'precise32' },
-  { :hostname => 'ex6static1', :ip => '192.168.0.46', :box => 'precise32' },
-  { :hostname => 'ex6static2', :ip => '192.168.0.47', :box => 'precise32' },
-  { :hostname => 'ex6cache',   :ip => '192.168.0.48', :box => 'precise32' },
+  { :hostname => 'ex6proxy',   :ip => '172.168.0.42', :box => 'ubuntu/precise32' },
+  { :hostname => 'ex6db',      :ip => '172.168.0.43', :box => 'ubuntu/precise32' },
+  { :hostname => 'ex6web1',    :ip => '172.168.0.44', :box => 'ubuntu/precise32' },
+  { :hostname => 'ex6web2',    :ip => '172.168.0.45', :box => 'ubuntu/precise32' },
+  { :hostname => 'ex6static1', :ip => '172.168.0.46', :box => 'ubuntu/precise32' },
+  { :hostname => 'ex6static2', :ip => '172.168.0.47', :box => 'ubuntu/precise32' },
+  { :hostname => 'ex6cache',   :ip => '172.168.0.48', :box => 'ubuntu/precise32' },
 ]
 
 Vagrant.configure("2") do |config|
   nodes.each do |node|
     config.vm.define node[:hostname] do |nodeconfig|
-      nodeconfig.vm.box = "precise32"
+      nodeconfig.vm.box = "ubuntu/precise32"
       nodeconfig.vm.hostname = node[:hostname] + ".box"
       nodeconfig.vm.network :private_network, ip: node[:ip]
 

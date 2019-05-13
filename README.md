@@ -17,7 +17,6 @@ The host OS used in testing these examples was Mint 14 (Ubuntu-based), but any O
 From one of the example directories, type the following commands...
 
 ```
-vagrant box add precise32 http://files.vagrantup.com/precise32.box
 vagrant up
 vagrant ssh
 vagrant destroy
